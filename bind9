@@ -16,9 +16,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: bind
-        image: internetsystemsconsortium/bind9
-        pullPolicy: IfNotPresent
-        tag: 9.20
+        image: sameersbn/bind:9.16.1-20200524
         ports:
         - containerPort: 53
           containerPort: 10000
@@ -26,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bind9-svc
+  name: bind-svc
 spec:
   type: LoadBalancer
   ports:
@@ -40,7 +38,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bind9-svc-tcp
+  name: bind-svc-tcp
 spec:
   type: LoadBalancer
   ports:
@@ -54,7 +52,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bind9-web
+  name: bind-web
 spec:
   type: LoadBalancer
   ports:
